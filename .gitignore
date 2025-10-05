@@ -1,0 +1,9 @@
+# Changes to files that will be ignored by git
+*.exe
+*.bin
+logs*.txt
+
+# Changes to folders that will be ignored by git
+.vscode/
+install/
+build/

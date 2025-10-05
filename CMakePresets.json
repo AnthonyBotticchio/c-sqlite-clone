@@ -1,0 +1,113 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 25,
+        "patch": 0
+    },
+
+    "configurePresets": [
+        {
+            "name": "ninja-base",
+            "displayName": "Ninja Base Preset",
+            "description": "Base configuration for all Ninja builds",
+            "generator": "Ninja"
+        },
+        {
+            "name": "ninja-release",
+            "inherits": "ninja-base",
+            "displayName": "Ninja Release Build",
+            "description": "Release build using Ninja",
+            "binaryDir": "${sourceDir}/build/ninja/release",
+            "installDir": "${sourceDir}/install/ninja/release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "ninja-debug",
+            "inherits": "ninja-base",
+            "displayName": "Ninja Debug Build",
+            "description": "Debug build using Ninja",
+            "binaryDir": "${sourceDir}/build/ninja/debug",
+            "installDir": "${sourceDir}/install/ninja/debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "mingw",
+            "displayName": "MinGW Makefiles Build",
+            "description": "Release build using MinGW Makefiles",
+            "generator": "MinGW Makefiles",
+            "binaryDir": "${sourceDir}/build/mingw",
+            "installDir": "${sourceDir}/install/mingw"
+        },
+        {
+            "name": "unix",
+            "displayName": "Unix Makefiles Build",
+            "description": "Release build using Unix Makefiles",
+            "generator": "Unix Makefiles",
+            "binaryDir": "${sourceDir}/build/unix",
+            "installDir": "${sourceDir}/install/unix"
+        }
+    ],
+
+    "buildPresets": [
+        {
+            "name": "ninja-release",
+            "jobs": 0,
+            "targets": "all",
+            "configurePreset": "ninja-release"
+        },
+        {
+            "name": "ninja-debug",
+            "jobs": 0,
+            "targets": "all",
+            "configurePreset": "ninja-debug"
+        },
+        {
+            "name": "mingw",
+            "jobs": 0,
+            "targets": "all",
+            "configurePreset": "mingw"
+        },
+        {
+            "name": "unix",
+            "jobs": 0,
+            "targets": "all",
+            "configurePreset": "unix"
+        }
+    ],
+
+    "workflowPresets": [
+        {
+            "name": "ninja-release",
+            "steps": [
+                { "type": "configure", "name": "ninja-release" },
+                { "type": "build", "name": "ninja-release" }
+            ]
+        },
+        {
+            "name": "ninja-debug",
+            "steps": [
+                { "type": "configure", "name": "ninja-debug" },
+                { "type": "build", "name": "ninja-debug" }
+            ]
+        },
+        {
+            "name": "mingw",
+            "steps": [
+                { "type": "configure", "name": "mingw" },
+                { "type": "build", "name": "mingw" }
+            ]
+        },
+        {
+            "name": "unix",
+            "steps": [
+                { "type": "configure", "name": "unix" },
+                { "type": "build", "name": "unix" }
+            ]
+        }
+    ]
+}
