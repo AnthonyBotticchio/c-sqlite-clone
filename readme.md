@@ -21,7 +21,7 @@ cmake --workflow ninja-release
 Run with:
 
 ```bash
-./build/ninja/release/c-sqlite-clone database.bin
+./build/ninja/release/database/c-sqlite-clone database.bin
 ```
 
 Where `database.bin` is the binary file where the database will dump the serialized memory after exiting with `.exit`.
