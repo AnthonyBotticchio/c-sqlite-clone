@@ -3,8 +3,6 @@
 #include <log.h>
 #include <stdlib.h>
 
-
-
 void* row_slot( Pager* pager, uint32_t row_num )
 {
     uint32_t page_num = row_num / ROWS_PER_PAGE;

@@ -80,9 +80,6 @@ static ExecuteResult execute_insert( Statement* statement, Table* table )
     serialize_row( row_to_insert, row_slot( table->pager, table->num_rows ) );
     table->num_rows++; // Add to number of rows in our table.
 
-    // serialize_row(row_to_insert, row_slot(table->pager, table->num_rows));
-    // table->num_rows++; // Add to number of rows in our table.
-
     return EXECUTE_SUCCESS;
 }
 

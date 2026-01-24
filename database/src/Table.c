@@ -3,12 +3,14 @@
 #include "Row.h"
 #include <sys/stat.h>
 
-#include <errno.h> // For linux
 #include <fcntl.h>
 #include <log.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+// Linux
+#include <errno.h>
 
 Pager* pager_open( const char* filename )
 {
