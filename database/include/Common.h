@@ -1,7 +1,6 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-#include "CommandEnums.h"
 #include "Row.h"
 #include "Table.h"
 

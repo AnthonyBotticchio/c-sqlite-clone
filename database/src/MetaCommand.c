@@ -1,5 +1,6 @@
 #include "MetaCommand.h"
 
+#include "defines.h"
 #include <stdlib.h>
 
 MetaCommandResult execute_meta_command( InputBuffer* input_buffer, Table* table )
@@ -12,8 +13,9 @@ MetaCommandResult execute_meta_command( InputBuffer* input_buffer, Table* table 
     }
     else if( strcmp( input_buffer->buffer, ".write" ) == 0 )
     {
+        // Broken
         log_info( "Attempting to write database..." );
-        pager_flush( table->pager, table->num_rows / ROWS_PER_P AGE, PAGE_SIZE );
+        pager_flush( table->pager, table->num_rows / ROWS_PER_PAGE, PAGE_SIZE );
     }
     else
     {
