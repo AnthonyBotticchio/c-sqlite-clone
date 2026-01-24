@@ -1,8 +1,11 @@
 #include "MetaCommand.h"
 
+#include "InputBuffer.h"
 #include "defines.h"
 
+#include <log.h>
 #include <stdlib.h>
+#include <string.h>
 
 MetaCommandResult execute_meta_command( InputBuffer* input_buffer, Table* table )
 {

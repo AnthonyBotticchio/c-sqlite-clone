@@ -4,6 +4,7 @@
 #define LOGGING_PATH_FATAL "log_fatal.txt"
 
 #include "Common.h"
+#include "InputBuffer.h"
 #include "MetaCommand.h"
 #include "Row.h"
 #include "Table.h"
@@ -11,7 +12,7 @@
 #include <log.h>
 #include <stdlib.h>
 
-PrepareResult prepare_insert( InputBuffer* input_buffer, Statement* statement )
+static PrepareResult prepare_insert( InputBuffer* input_buffer, Statement* statement )
 {
     statement->type = STATEMENT_INSERT;
 
@@ -50,7 +51,7 @@ PrepareResult prepare_insert( InputBuffer* input_buffer, Statement* statement )
     return PREPARE_SUCCESS;
 }
 
-PrepareResult prepare_statement( InputBuffer* input_buffer, Statement* statement )
+static PrepareResult prepare_statement( InputBuffer* input_buffer, Statement* statement )
 {
     // Compare string results to how we want to handle SQL statements.
     // Here we apply the statement type to the passed in Statement.
@@ -68,7 +69,7 @@ PrepareResult prepare_statement( InputBuffer* input_buffer, Statement* statement
     return PREPARE_UNRECOGNIZED_STATEMENT;
 }
 
-ExecuteResult execute_insert( Statement* statement, Table* table )
+static ExecuteResult execute_insert( Statement* statement, Table* table )
 {
     if( table->num_rows >= TABLE_MAX_ROWS )
     {
@@ -85,7 +86,7 @@ ExecuteResult execute_insert( Statement* statement, Table* table )
     return EXECUTE_SUCCESS;
 }
 
-ExecuteResult execute_select( Statement* statement, Table* table )
+static ExecuteResult execute_select( Statement* statement, Table* table )
 {
     if( table->num_rows == 0 )
     {
@@ -105,7 +106,7 @@ ExecuteResult execute_select( Statement* statement, Table* table )
     return EXECUTE_SUCCESS;
 }
 
-ExecuteResult execute_statement( Statement* statement, Table* table )
+static ExecuteResult execute_statement( Statement* statement, Table* table )
 {
     switch( statement->type )
     {

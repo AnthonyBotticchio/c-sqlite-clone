@@ -12,9 +12,8 @@ typedef struct
     char email[COLUMN_EMAIL_SIZE + 1];
 } Row;
 
-const char* row_to_str( Row* row );
-
-void serialize_row( Row* source, void* destination );
-void deserialize_row( void* source, Row* destination );
+extern const char* row_to_str( Row* row );
+extern void serialize_row( Row* source, void* destination );
+extern void deserialize_row( void* source, Row* destination );
 
 #endif // ROW_H

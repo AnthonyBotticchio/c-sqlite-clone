@@ -1,13 +1,6 @@
 #ifndef COMMAND_ENUMS_H
 #define COMMAND_ENUMS_H
 
-/// @brief Non-SQL statements like .exit are called “meta-commands”. They all start with a dot. We handle them separately.
-typedef enum
-{
-    META_COMMAND_SUCCESS,
-    META_COMMAND_UNRECOGNIZED_COMMAND
-} MetaCommandResult;
-
 typedef enum
 {
     PREPARE_SUCCESS,
