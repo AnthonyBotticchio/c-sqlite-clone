@@ -1,6 +1,6 @@
 #define LOGGING_PATH_TRACE "log_trace.txt"
 #define LOGGING_PATH_INFO "log_info.txt"
-#define LOGGING_PATH_WARNIGN "log_warning.txt"
+#define LOGGING_PATH_WARNING "log_warning.txt"
 #define LOGGING_PATH_FATAL "log_fatal.txt"
 
 #include "Common.h"
@@ -93,7 +93,7 @@ ExecuteResult execute_select( Statement* statement, Table* table )
     }
     else
     {
-        Row row = { 0 }; // Zero initialize
+        Row row = { 0 };
 
         for( uint32_t i = 0; i < table->num_rows; ++i )
         {
@@ -151,8 +151,6 @@ int main( int argc, char* argv[] )
         }
 
         Statement statement = { 0 };
-        // Statement* sample = malloc(sizeof(Statement));
-        // log_info("Size of statement pointer: %zu, versus size of statement stack object: %zu", sizeof(sample), sizeof(statement) );
 
         switch( prepare_statement( input_buffer, &statement ) )
         {

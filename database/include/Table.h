@@ -2,6 +2,7 @@
 #define TABLE_H
 
 #include "defines.h"
+
 #include <stdint.h>
 
 // Linux
