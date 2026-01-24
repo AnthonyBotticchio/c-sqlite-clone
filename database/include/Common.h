@@ -6,7 +6,9 @@
 #include "Table.h"
 
 #include <stdint.h>
-#include <stddef.h> // For linux
+
+// Linux
+#include <stddef.h> 
 
 typedef struct
 {

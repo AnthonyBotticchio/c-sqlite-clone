@@ -6,7 +6,7 @@ add_executable(c-sqlite-clone)
 
 target_link_libraries(c-sqlite-clone PRIVATE
     logger
-    utils
+    # utils
 )
 
 # ------ Sources ------

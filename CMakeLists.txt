@@ -4,16 +4,16 @@ cmake_minimum_required(VERSION 3.25)
 
 project(c-sqlite-clone)
 
-if(WIN32)
-    set(BUILD_SHARED_LIBS OFF) 	# TODO: Builds on Windows don't detect dll's yet
+if(WIN32 OR APPLE)
+    set(BUILD_SHARED_LIBS OFF) 
 else()
-    set(BUILD_SHARED_LIBS ON) 	# Builds all libs as SHARED
+    set(BUILD_SHARED_LIBS ON)
 endif()
 
 # ------ Libraries ------
 
-add_subdirectory(logger) 	# This is for logging
-add_subdirectory(utils) 	# Includes nob (no build) and stb for C hash tables
+add_subdirectory(logger) 	# Logging
+# add_subdirectory(utils) 	# Includes nob (no build) and stb for C hash tables
 
 # ------ Executables ------
 

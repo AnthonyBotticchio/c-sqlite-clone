@@ -1,5 +1,6 @@
 #define LOGGING_PATH_TRACE "log_trace.txt"
 #define LOGGING_PATH_INFO "log_info.txt"
+#define LOGGING_PATH_WARNIGN "log_warning.txt"
 #define LOGGING_PATH_FATAL "log_fatal.txt"
 
 #include "Common.h"
@@ -9,19 +10,7 @@
 #include <stdlib.h>
 #include <log.h>
 
-MetaCommandResult execute_meta_command(InputBuffer *input_buffer, Table *table)
-{
-    if (strcmp(input_buffer->buffer, ".exit") == 0)
-    {
-        free_input_buffer(input_buffer);
-        db_close(table);
-        exit(EXIT_SUCCESS);
-    }
-    else
-    {
-        return META_COMMAND_UNRECOGNIZED_COMMAND;
-    }
-}
+
 
 PrepareResult prepare_insert(InputBuffer *input_buffer, Statement *statement)
 {

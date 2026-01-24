@@ -1,8 +1,9 @@
 #include "Common.h"
 
 #include <stdlib.h>
-#include <nob.h>
 #include <log.h>
+
+#define BUFFER_CAP 256
 
 InputBuffer *new_intput_buffer()
 {
@@ -31,7 +32,7 @@ void read_input(InputBuffer *input_buffer)
         // Allocate buffer if not already allocated
         if (input_buffer->buffer == NULL)
         {
-            input_buffer->buffer_size = NOB_DA_INIT_CAP; // initial size (NOB_DA_INIT_CAP = 256)
+            input_buffer->buffer_size = BUFFER_CAP; // initial size (NOB_DA_INIT_CAP = 256)
             input_buffer->buffer = malloc(input_buffer->buffer_size);
             if (input_buffer->buffer == NULL)
             {

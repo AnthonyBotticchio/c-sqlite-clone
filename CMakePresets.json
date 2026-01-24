@@ -18,8 +18,8 @@
             "inherits": "ninja-base",
             "displayName": "Ninja Release Build",
             "description": "Release build using Ninja",
-            "binaryDir": "${sourceDir}/build/ninja/release",
-            "installDir": "${sourceDir}/install/ninja/release",
+            "binaryDir": "${sourceDir}/build",
+            "installDir": "${sourceDir}/install",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
@@ -29,8 +29,8 @@
             "inherits": "ninja-base",
             "displayName": "Ninja Debug Build",
             "description": "Debug build using Ninja",
-            "binaryDir": "${sourceDir}/build/ninja/debug",
-            "installDir": "${sourceDir}/install/ninja/debug",
+            "binaryDir": "${sourceDir}/build",
+            "installDir": "${sourceDir}/install",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
@@ -40,16 +40,16 @@
             "displayName": "MinGW Makefiles Build",
             "description": "Release build using MinGW Makefiles",
             "generator": "MinGW Makefiles",
-            "binaryDir": "${sourceDir}/build/mingw",
-            "installDir": "${sourceDir}/install/mingw"
+            "binaryDir": "${sourceDir}/build",
+            "installDir": "${sourceDir}/install"
         },
         {
             "name": "unix",
             "displayName": "Unix Makefiles Build",
             "description": "Release build using Unix Makefiles",
             "generator": "Unix Makefiles",
-            "binaryDir": "${sourceDir}/build/unix",
-            "installDir": "${sourceDir}/install/unix"
+            "binaryDir": "${sourceDir}/build",
+            "installDir": "${sourceDir}/install"
         }
     ],
 

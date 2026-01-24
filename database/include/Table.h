@@ -23,7 +23,7 @@ void free_pager(Pager *pager);
 void *get_page(Pager *pager, uint32_t page_num);
 void pager_flush(Pager *pager, uint32_t page_num, size_t size);
 
-Table *db_open();
+Table *db_open(const char* filename);
 void db_close(Table *table);
 void free_table(Table *table);
 
