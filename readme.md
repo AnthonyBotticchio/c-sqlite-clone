@@ -1,4 +1,4 @@
-# C Sqlite Clone
+# C SQLite Clone
 
 This project was undertaken for my own learning and educational purposes.
 
