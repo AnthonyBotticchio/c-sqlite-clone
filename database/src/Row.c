@@ -12,14 +12,14 @@ const char* row_to_str( Row* row )
 
 void serialize_row( Row* source, void* destination )
 {
-    memcpy( destination + ID_OFFSET, &( source->id ), ID_SIZE );
-    strncpy( destination + USERNAME_OFFSET, source->username, USERNAME_SIZE );
-    strncpy( destination + EMAIL_OFFSET, source->email, EMAIL_SIZE );
+    memcpy( (char*)destination + ID_OFFSET, &( source->id ), ID_SIZE );
+    strncpy( (char*)destination + USERNAME_OFFSET, source->username, USERNAME_SIZE );
+    strncpy( (char*)destination + EMAIL_OFFSET, source->email, EMAIL_SIZE );
 }
 
 void deserialize_row( void* source, Row* destination )
 {
-    memcpy( &( destination->id ), source + ID_OFFSET, ID_SIZE );
-    strncpy( destination->username, source + USERNAME_OFFSET, USERNAME_SIZE );
-    strncpy( destination->email, source + EMAIL_OFFSET, EMAIL_SIZE );
+    memcpy( &( destination->id ), (char*)source + ID_OFFSET, ID_SIZE );
+    strncpy( destination->username, (char*)source + USERNAME_OFFSET, USERNAME_SIZE );
+    strncpy( destination->email, (char*)source + EMAIL_OFFSET, EMAIL_SIZE );
 }

@@ -10,6 +10,8 @@ else()
     set(BUILD_SHARED_LIBS ON)
 endif()
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # ------ Libraries ------
 
 add_subdirectory(logger) 	# Logging
